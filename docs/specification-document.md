@@ -1,9 +1,13 @@
-The project, including the documentation and code, are written fully in english with the code being written in Python. I am currently not proficient in any other programming language (I can peer review projects written in English and Finnish).
+# Specifications
 
-The core of the project are the code and data structures used for implementing an MLP-based neural network for use in hand written digit classification. The project isn't focused on UI or complex preprocessing.
+The project, including the documentation and code, are mostly written in english with the code being written in Python. The weekly reports will be written in both finnish and english. I am currently not proficient in any other programming language. I can peer review projects written in English and Finnish.
 
-Inputs and how are they used?
-Expected time and space complexities?
-List of sources?
+The core of the project is the code, especially the backpropagation algorithm, and data structures used for implementing an MLP-based neural network. The neural network will then be used for hand written digit classification with training being based on the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset. The goal for the digit classification is to achieve a 97% or above classification success percentage on the MNIST test data set. I am currently unsure about the time- and space complexity needed to achieve this, due to the structure of the neural network not being finalized, which is needed in determining the complexities.
+
+The project is largely focused on the neural network itself and not on UI or complex image preprocessing. The only library that will used in the neural network code itself will be [NumPy](https://numpy.org/), which is necessary for fast matrix operations. The implementation will largely be based on the implementation included in chapter 1 of [*Neural Networks and Deep Learning*](http://neuralnetworksanddeeplearning.com/), a free online book written by Michael Nielsen in 2019.
+
+Users will be able to test the functionality of the neural network by selecting the images used for classification from the MNIST test set of images. The selection will have an UI where the users can see the images being tested. The program will then classify the chosen images and return the computed classifications alongside the correct classifications.
+
+If time is leftover at the end of the project, functionality for user submitted handwritten digit classification will also be implemented. This would likely be implemented using flags on the command line where the user would include the path to the image for use in classification. The preprocessing of the image would then be accomplished using the [OpenCV](https://opencv.org/) computer vision library. A user guide for the submitted images would also need to be included (centered, clear and contrasting background, what the preprocessing can handle itself, etc.).
 
 I am enrolled in the finnish Bachelor's in Computer Science (Tietojenkäsittelytieteen kandiohjelma) program.
