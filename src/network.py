@@ -8,7 +8,7 @@ class Network(object):
         self.num_layers = len(sizes)
         self.sizes = sizes
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
-        self.weights = [np.random.randn(x, y)
+        self.weights = [np.random.randn(y, x)
                         for x, y in zip(sizes[:-1], sizes[1:])]
     
     def feedforward(self, a):
@@ -70,7 +70,7 @@ class Network(object):
             nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())
         return (nabla_b, nabla_w)
     
-    def evalute(self, test_data):
+    def evaluate(self, test_data):
         test_results = [(np.argmax(self.feedforward(x)), y) 
                         for (x, y) in test_data]
         return sum(int(x == y) for (x, y) in test_results)
