@@ -4,6 +4,7 @@ todo.txt
 testing/
 sources.md
 notes.md
+data/parameters.pkl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
