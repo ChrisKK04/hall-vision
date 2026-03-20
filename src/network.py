@@ -77,6 +77,13 @@ class Network(object):
     
     def cost_derivative(self, output_activations, y):
         return (output_activations-y)
+    
+    def extract_parameters(self):
+        return (self.sizes, self.biases, self.weights)
+    
+    def set_biases_weights(self, biases, weights):
+        self.biases = biases
+        self.weights = weights
         
 def sigmoid(z):
     return 1.0/(1.0+np.exp(-z))
