@@ -25,3 +25,4 @@ The project is a solo project and was made for the course Project: Algorithms an
 
 ### Weekly reports
 - [Week 1 report](docs/weekly-reports/weekly-report-1.md)
+- [Week 2 report](docs/weekly-reports/weekly-report-2.md)
