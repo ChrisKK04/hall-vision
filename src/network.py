@@ -75,6 +75,9 @@ class Network(object):
                         for (x, y) in test_data]
         return sum(int(x == y) for (x, y) in test_results)
     
+    def evaluate_single(self, input):
+        return np.argmax(self.feedforward(input[0]))
+    
     def cost_derivative(self, output_activations, y):
         return (output_activations-y)
     
