@@ -5,6 +5,7 @@ testing/
 sources.md
 notes.md
 data/parameters.pkl
+images/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
