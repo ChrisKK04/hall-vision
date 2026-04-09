@@ -13,9 +13,21 @@
                                                                                                                               
 ```
 
-**HallVision: A lightweight, MLP-based neural network trained on MNIST for handwritten digit recognition.**
+**HallVision is A lightweight, MLP neural network, based on stochastic gradient descent, trained on the MNIST dataset for use in handwritten digit recognition.**
 
 The project is a solo project and was made for the course Project: Algorithms and AI 2026 period 4 at the University of Helsinki.
+
+### Downloading, dependencies and guide
+The program is downloaded by accessing the folder which the source code was downloaded into and running
+```
+poetry install
+```
+This will install the following dependencies:
+- [NumPy](https://numpy.org/) (fast matrix operations)
+- [OpenCV](https://opencv.org/) (image preprocessing)
+- [Matplotlib](https://matplotlib.org/) (printing images)
+
+See the [user guide](/docs/user-guide.md) for further usage.
 
 ### Documentation
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Specification document](docs/specification-document.md)  
@@ -26,3 +38,5 @@ The project is a solo project and was made for the course Project: Algorithms an
 ### Weekly reports
 - [Week 1 report](docs/weekly-reports/weekly-report-1.md)
 - [Week 2 report](docs/weekly-reports/weekly-report-2.md)
+- [Week 3 report](docs/weekly-reports/weekly-report-3.md)
+- [Week 4 report](docs/weekly-reports/weekly-report-4.md)
