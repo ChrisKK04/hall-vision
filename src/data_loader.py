@@ -24,5 +24,5 @@ def load_mnist_test():
 
 def load_network_parameters():
     with open("data/parameters.pkl", "rb") as f:
-        sizes, biases, weights = pickle.load(f)
-    return (sizes, biases, weights)
+        sizes, weights, biases = pickle.load(f)
+    return (sizes, weights, biases)
