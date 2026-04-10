@@ -12,7 +12,7 @@ Opin tällä kertaa neuroverkossa käytetyn oppimisalgoritmin ja takaisinvirtaus
 
 Mikään ei jäänyt epäselväksi.
 
-Olen testaillut algoritmia kehityksen saatossa ja se vaikuttaa toimivan hyvin, mutta en ole vielä aloittanut varsinaisten vaatimusten mukaisten testien tekemistä. Jatkan täten seuraavaksi testien parissa.
+Olen testaillut algoritmia kehityksen saatossa ja se vaikuttaa toimivan hyvin, mutta en ole vielä aloittanut varsinaisten vaatimusten mukaisten testien tekemistä. Jatkan täten seuraavaksi testien parissa. Olen myös tajunnut että visuaalit ovat hyvin tärkeitä projektin viimeistelyn ja "wow"-fiiliksen kannalta, joten jos aikaa jää, haluaisin parantaa ohjelmiston visalisointia. Esimerkiksi edistymispalkki epookeille, graafi mallin tarkkuudella, tapa valita datasta kuvia ja nähdä mallin tulostukset (jonkinlainen ruudukko kuville joissa kuva, haluttu luku ja vaikka väreillä oliko vastaus oikein), jne. Ajattelen että tämä saattaisi olla mielekkäämpää kuin mallin tarkkuuden kehittäminen (oppisin ehkä enemmän sillä en ole ennen tehnyt visalisointia).
 
 Käytin viikon aikana työhön noin 20 tuntia.
 
