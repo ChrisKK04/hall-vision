@@ -6,6 +6,8 @@ stochastic gradient descent and the sigmoid
 activation function.
 """
 
+import random
+
 import numpy as np
 
 class Network:
@@ -35,6 +37,7 @@ class Network:
     
     def stochastic_gradient_descent(self, training_data, epochs, batch_size, training_rate, test_data=False):
         for epoch in range(epochs):
+            random.shuffle(training_data)
             mini_batches = [training_data[end_index - batch_size:end_index]
                             for end_index in range(batch_size, len(training_data) + 1, batch_size)]
             for mini_batch in mini_batches:
