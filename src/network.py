@@ -4,13 +4,17 @@ network.py
 Implementation of an MLP neural network using
 stochastic gradient descent and the sigmoid
 activation function.
+
+BaseNetwork - the core architecture of the neural network
+Network - extra functionality for use when using the network
 """
 
 import random
 
 import numpy as np
 
-class Network:
+# the core of the neural network architecture
+class BaseNetwork:
 
     def __init__(self, sizes):
         self.sizes = sizes
@@ -18,12 +22,12 @@ class Network:
         self.weights = [(np.random.randn(sizes[layer + 1], sizes[layer]))
                         for layer in range(len(sizes[1:]))]
         self.biases = [np.random.randn(layer, 1) for layer in sizes[1:]]
-
+    
     def feedforward(self, a):
         for weights, biases in zip(self.weights, self.biases):
             a = self.sigmoid(np.matmul(weights, a) + biases)
         return a
-    
+
     def feedforward_save(self, a):
         # activations and weighted inputs into lists per layer
         activations = [a]
@@ -35,16 +39,13 @@ class Network:
             activations.append(a)
         return activations, weighted_inputs
     
-    def stochastic_gradient_descent(self, training_data, epochs, batch_size, training_rate, test_data=False):
+    def stochastic_gradient_descent(self, training_data, epochs, batch_size, training_rate):
         for epoch in range(epochs):
             random.shuffle(training_data)
             mini_batches = [training_data[end_index - batch_size:end_index]
                             for end_index in range(batch_size, len(training_data) + 1, batch_size)]
             for mini_batch in mini_batches:
                 self.update_parameters(mini_batch, training_rate)
-            if test_data:
-                accuracy = self.accuracy(test_data)
-                print(f"Epoch {epoch + 1}: {accuracy[0]}/{accuracy[1]}")
 
     def update_parameters(self, mini_batch, training_rate):
         # activations = layer: 1, 2, ..., L - 1
@@ -86,6 +87,22 @@ class Network:
 
     def sigmoid_prime(self, z):
         return self.sigmoid(z) * (1 - self.sigmoid(z))
+
+# The main class used when using the network
+# includes extra functionality not core to the learning
+class Network(BaseNetwork):
+    
+    # reimplemented with accuracy testing after each epoch
+    def stochastic_gradient_descent(self, training_data, epochs, batch_size, training_rate, test_data=False):
+        for epoch in range(epochs):
+            random.shuffle(training_data)
+            mini_batches = [training_data[end_index - batch_size:end_index]
+                            for end_index in range(batch_size, len(training_data) + 1, batch_size)]
+            for mini_batch in mini_batches:
+                self.update_parameters(mini_batch, training_rate)
+            if test_data:
+                accuracy = self.accuracy(test_data)
+                print(f"Epoch {epoch + 1}: {accuracy[0]}/{accuracy[1]}")
     
     def accuracy(self, test_data):
         correct_count = [1 for sample in test_data if np.argmax(self.feedforward(sample[0])) == sample[1]]
