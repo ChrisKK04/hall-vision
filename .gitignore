@@ -1,7 +1,6 @@
 # project specific
 todo.txt
 *.vscode
-testing/
 sources.md
 notes.md
 data/parameters.pkl

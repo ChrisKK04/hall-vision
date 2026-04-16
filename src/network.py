@@ -16,7 +16,8 @@ import numpy as np
 # the core of the neural network architecture
 class BaseNetwork:
 
-    def __init__(self, sizes):
+    def __init__(self, sizes: list):
+        """Initializes a network using a list of the given structure"""
         self.sizes = sizes
         self.length = len(sizes)
         self.weights = [(np.random.randn(sizes[layer + 1], sizes[layer]))
@@ -39,7 +40,7 @@ class BaseNetwork:
             activations.append(a)
         return activations, weighted_inputs
     
-    def stochastic_gradient_descent(self, training_data, epochs, batch_size, training_rate):
+    def stochastic_gradient_descent(self, training_data: list, epochs: int, batch_size: int, training_rate: int):
         for epoch in range(epochs):
             random.shuffle(training_data)
             mini_batches = [training_data[end_index - batch_size:end_index]
@@ -94,6 +95,7 @@ class Network(BaseNetwork):
     
     # reimplemented with accuracy testing after each epoch
     def stochastic_gradient_descent(self, training_data, epochs, batch_size, training_rate, test_data=False):
+        """SGD with post epoch prints"""
         for epoch in range(epochs):
             random.shuffle(training_data)
             mini_batches = [training_data[end_index - batch_size:end_index]
@@ -105,15 +107,23 @@ class Network(BaseNetwork):
                 print(f"Epoch {epoch + 1}: {accuracy[0]}/{accuracy[1]}")
     
     def accuracy(self, test_data):
-        correct_count = [1 for sample in test_data if np.argmax(self.feedforward(sample[0])) == sample[1]]
+        """Test accuracy on test data"""
+        if type(test_data[0][1]) is np.int64:
+            correct_count = [1 for sample in test_data if np.argmax(self.feedforward(sample[0])) == sample[1]]
+        else:
+            correct_count = [1 for sample in test_data if np.argmax(self.feedforward(sample[0])) == np.argmax(sample[1])]
+
         return (len(correct_count), len(test_data))
     
     def evaluate_single(self, image):
+        """Evaluates a single image"""
         return np.argmax(self.feedforward(image))
     
     def set_weights_biases(self, weights, biases):
+        """Sets weights and biases"""
         self.weights = weights
         self.biases = biases
 
-    def extract_parameters(self):
-        return (self.sizes, self.weights, self.biases)
+    def extract_parameters(self) -> tuple[list, list, list]:
+        """Returns tuple of (network shape, weights, biases)"""
+        return (self.sizes.copy(), self.weights.copy(), self.biases.copy())
