@@ -4,9 +4,9 @@ test_network.py
 File for automated tests of the used neural network
 
 Run the tests below with "python3 -m pytest tests/test_network.py"
-from the root of the project.
+from the root of the project (linux).
 
-"poetry run pytest --cov=src tests/" - coverage
+"python3 -m pytest --cov=src tests/" - coverage (linux).
 """
 
 import random
@@ -73,3 +73,12 @@ def test_all_layers_update():
     training_data = training_data[:10]
     net = TestNetwork([784, 256, 128, 64, 32, 16, 10])
     net.stochastic_gradient_descent(training_data, 10, 5, 3)
+
+# correct network shape
+def test_network_shape():
+    sizes = [784, 256, 128, 64, 32, 16, 10]
+    net = network.BaseNetwork(sizes)
+    for i in range(1, len(sizes)):
+        assert sizes[i-1] == len(net.weights[i-1][0]) # weight input
+        assert sizes[i] == len(net.weights[i-1]) # weight output
+        assert sizes[i] == len(net.biases[i-1]) # biases

@@ -20,7 +20,7 @@ The project is a solo project and was made for the course Project: Algorithms an
 ### Downloading, dependencies and guide
 The project uses [Python](https://www.python.org/) and [Poetry](https://python-poetry.org/) to manage dependencies, both need to be downloaded.
 
-Once Python, Poetry and the project source code is downloaded, the necessary dependencies can be downloaed by running the following in the project folders root:
+Once Python, Poetry and the project source code is downloaded, the necessary dependencies can be downloaded by running the following in the project folders root:
 ```
 poetry install
 ```
@@ -29,9 +29,9 @@ This will install the following dependencies:
 - [OpenCV](https://opencv.org/) (image preprocessing)
 - [Matplotlib](https://matplotlib.org/) (printing images)
 - [Pytest](https://docs.pytest.org/en/stable/) (automatic testing)
-- [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) (test coverage for using Pytest)
+- [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) (Pytest test coverage)
 
-See the [user guide](/docs/user-guide.md) for further usage.
+See the [user guide](/docs/user-guide.md) for further usage information.
 
 ### Documentation
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Specification document](docs/specification-document.md)  
