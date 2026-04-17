@@ -44,3 +44,4 @@ See the [user guide](/docs/user-guide.md) for further usage information.
 - [Week 2 report](docs/weekly-reports/weekly-report-2.md)
 - [Week 3 report](docs/weekly-reports/weekly-report-3.md)
 - [Week 4 report](docs/weekly-reports/weekly-report-4.md)
+- [Week 5 report](docs/weekly-reports/weekly-report-5.md)
