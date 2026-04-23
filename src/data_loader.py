@@ -43,19 +43,27 @@ def convert_vectors_to_images(vectors):
             images.append((vector[0].reshape(shape), np.argmax(vector[1])))
     return images
 
-def show_images(images):
-    """Prints figures of MNIST images"""
+def show_images(images, classifications=False):
+    """Prints figures of MNIST images
+    Either images with only the digit or the digit and neural classification"""
     # images = tuples of (28x28 matrix, digit)
     columns = 5
     rows = 5
     sets = math.ceil(len(images) / 25)
     for i in range(sets):
         fig = plt.figure(figsize=(7, 7))
+        fig.suptitle(f"Set {i+1}/{sets}")
+        # include subtext
+        if classifications:
+            fig.text(0.5, 0.05, "(digit, network)", ha="center")
         for j in range(1, min(25, len(images)) + 1):
-            fig.suptitle(f"Set {i+1}/{sets}")
             fig.add_subplot(rows, columns, j)
+            # include network classification
+            if classifications:
+                plt.title(f"{int(images[j-1][1])}, {int(images[j-1][2])}")
+            else:
+                plt.title(int(images[j-1][1]))
             plt.imshow(images[j-1][0], cmap="gray")
-            plt.title(int(images[j-1][1]))
             plt.axis("off")
         plt.subplots_adjust(hspace=0.3)
         plt.show()

@@ -112,7 +112,6 @@ class Network(BaseNetwork):
             correct_count = [1 for sample in test_data if np.argmax(self.feedforward(sample[0])) == sample[1]]
         else:
             correct_count = [1 for sample in test_data if np.argmax(self.feedforward(sample[0])) == np.argmax(sample[1])]
-
         return (len(correct_count), len(test_data))
     
     def evaluate_single(self, image):
@@ -127,3 +126,13 @@ class Network(BaseNetwork):
     def extract_parameters(self) -> tuple[list, list, list]:
         """Returns tuple of (network shape, weights, biases)"""
         return (self.sizes.copy(), self.weights.copy(), self.biases.copy())
+    
+    def extract_incorrect(self, data):
+        """Returns the images with the wrong classification
+        [(vector, digit)] -> [(vector, digit, classification)]"""
+        incorrect = []
+        for sample in data:
+            classification = np.argmax(self.feedforward(sample[0]))
+            if classification != sample[1]:
+                incorrect.append((sample[0], sample[1], classification))
+        return incorrect
