@@ -96,6 +96,9 @@ class Network(BaseNetwork):
     # reimplemented with accuracy testing after each epoch
     def stochastic_gradient_descent(self, training_data, epochs, batch_size, training_rate, test_data=False):
         """SGD with post epoch prints"""
+        if test_data:
+            accuracy = self.accuracy(test_data)
+            print(f"Epoch {epoch}: {accuracy[0]}/{accuracy[1]}")
         for epoch in range(epochs):
             random.shuffle(training_data)
             mini_batches = [training_data[end_index - batch_size:end_index]
