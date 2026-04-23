@@ -45,3 +45,15 @@ See the [user guide](/docs/user-guide.md) for further usage information.
 - [Week 3 report](docs/weekly-reports/weekly-report-3.md)
 - [Week 4 report](docs/weekly-reports/weekly-report-4.md)
 - [Week 5 report](docs/weekly-reports/weekly-report-5.md)
+
+### Licensing
+This project uses a dual-licensing structure:
+- **Source Code**: All of the original code is licensed under the [MIT License](LICENSE). The included data converter tool is also licensed under the [MIT License](src/mnist_converter.py).
+- **Dataset**: The modified MNIST dataset included in this project is licensed under [CC BY-SA 4.0](data/LICENSE-DATA) as it is a derivative of the original MNIST dataset (CC BY-SA 3.0).
+
+#### Attribution
+The MNIST dataset used in this project was received from Michael Nielsen's online book [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/) and specifically from the associated [repository](https://github.com/mnielsen/neural-networks-and-deep-learning). Nielsen obtained the dataset from the LISA machine learning laboratory at the University of Montreal, which was a modified version of the original dataset, changed for easier handling in Python.
+
+The original MNIST dataset is by Yann LeCun and Corinna Cortes and can be found [here](https://yann.lecun.org/exdb/mnist/). It is licensed under the Creative Commons Attribution-Share Alike 3.0 ([CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)) license.
+
+**Converter tool**: The script used to convert LISA's modified MNIST dataset, was adapted into Python3, from Micheal Nielsen's project repository, available [here](https://github.com/mnielsen/neural-networks-and-deep-learning). This component is used under the MIT License.

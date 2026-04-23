@@ -1,3 +1,9 @@
+# Adapted from: Michael Nielsen's Neural Networks and Deep Learning project
+# Source: https://github.com/mnielsen/neural-networks-and-deep-learning
+# Copyright (c) 2012-2022 Michael Nielsen
+# Licensed under the MIT License
+# ---------------------------------------------------------
+
 """
 mnist_converter.py
 
