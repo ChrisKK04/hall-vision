@@ -49,16 +49,19 @@ See the [user guide](/docs/user-guide.md) for further usage information.
 
 ### Images
 
-<div>
+<div align="center">
   <figure>
-    <img src="images/example_digits.png" alt="25 examples of the images included in the MNIST dataset" style="width:25%">
+    <img src="images/example_digits.png" alt="25 examples of the images included in the MNIST dataset" style="width:50%">
+    <br>
+    <figcaption>MNIST example digit images</figcaption>
   </figure>
 </div>
 
-<div>
+<div align="center">
   <figure>
-    <img src="images/example_incorrect_digits.png" alt="25 examples of incorrect MNIST neural classifications" style="width:25%">
-    <figcaption>Examples of incorrect classifications</figcaption>
+    <img src="images/example_incorrect_digits.png" alt="25 examples of incorrect MNIST neural classifications" style="width:50%">
+    <br>
+    <figcaption>Examples of incorrect neural digit classifications</figcaption>
   </figure>
 </div>
 
