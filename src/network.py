@@ -98,7 +98,7 @@ class Network(BaseNetwork):
         """SGD with post epoch prints"""
         if test_data:
             accuracy = self.accuracy(test_data)
-            print(f"Epoch {epoch}: {accuracy[0]}/{accuracy[1]}")
+            print(f"Epoch 0: {accuracy[0]}/{accuracy[1]}")
         for epoch in range(epochs):
             random.shuffle(training_data)
             mini_batches = [training_data[end_index - batch_size:end_index]
