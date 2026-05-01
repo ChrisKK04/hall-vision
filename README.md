@@ -47,6 +47,21 @@ See the [user guide](/docs/user-guide.md) for further usage information.
 - [Week 5 report](docs/weekly-reports/weekly-report-5.md)
 - [Week 6 report](docs/weekly-reports/weekly-report-6.md)
 
+### Images
+
+<div>
+  <figure>
+    <img src="images/example_digits.png" alt="25 examples of the images included in the MNIST dataset" style="width:25%">
+  </figure>
+</div>
+
+<div>
+  <figure>
+    <img src="images/example_incorrect_digits.png" alt="25 examples of incorrect MNIST neural classifications" style="width:25%">
+    <figcaption>Examples of incorrect classifications</figcaption>
+  </figure>
+</div>
+
 ### Licensing
 This project uses a dual-licensing structure:
 - **Source Code**: All of the original code is licensed under the [MIT License](LICENSE). The included data converter tool is also licensed under the [MIT License](src/mnist_converter.py).
