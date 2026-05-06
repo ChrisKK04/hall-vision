@@ -24,4 +24,4 @@ def preprocess(img_path, digit, threshold=255, show=False):
     return (output, digit)
 
 if __name__ == "__main__":
-    input = preprocess(img_path="images/zero.png", digit=0, threshold=255, show=True)
+    input = preprocess(img_path="images_test/zero.png", digit=0, threshold=255, show=True)

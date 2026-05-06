@@ -37,5 +37,5 @@ def train(network_structure: list, epochs: int, mini_batch_size: int,
             pickle.dump((sizes, weights, biases), f)
 
 if __name__ == "__main__":
-    train(network_structure=[784, 30, 10], epochs=10, mini_batch_size=30,
+    train(network_structure=[784, 30, 10], epochs=30, mini_batch_size=20,
           learning_rate=5, extract_parameters=False, testing=True)

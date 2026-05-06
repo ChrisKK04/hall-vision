@@ -45,7 +45,7 @@ def convert_vectors_to_images(vectors):
 
 def show_images(images, classifications=False):
     """Prints figures of MNIST images
-    Either images with only the digit or the digit and neural classification"""
+    Either images with only the digit or the digit and it's neural classification."""
     # images = tuples of (28x28 matrix, digit)
     columns = 5
     rows = 5
