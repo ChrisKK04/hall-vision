@@ -7,6 +7,7 @@ Includes utilities for testing on the MNIST test dataset and single image classi
 
 import data_loader
 import network
+import plot
 import preprocessing
 
 def inference_on_test(figure=False):
@@ -23,11 +24,11 @@ def inference_on_test(figure=False):
     # prints a figure that includes the incorrect classifications
     if figure:
         incorrect = net.extract_incorrect(test_data)
-        converted = data_loader.convert_vectors_to_images(incorrect)
+        converted = plot.convert_vectors_to_images(incorrect)
         images = []
         for i in range(len(incorrect)):
             images.append((converted[i][0], converted[i][1], incorrect[i][2]))
-        data_loader.show_images(images, classifications=True)
+        plot.show_images(images, classifications=True)
 
 def inference_custom_image(img_path, digit, threshold=255, show=False):
     """Runs inference on a single input image"""
