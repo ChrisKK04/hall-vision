@@ -69,20 +69,24 @@ See the [user guide](/docs/user-guide.md) for further usage information.
 <h4 align="center">(repeats = 10, epochs = 10, mini batch size = 20, learning rate = 5)</h4>
 
 <div align="center">
-  <table>
-    <tr align="center">
-      <td><img src="images/[784, 30, 10].png" width="80%"></td>
-      <td><img src="images/[784, 64, 10].png" width="80%"></td>
-    </tr>
-    <tr align="center">
-      <td><img src="images/[784, 128, 10].png" width="80%"></td>
-      <td><img src="images/[784, 256, 128, 10].png" width="80%"></td>
-    </tr>
-    <tr align="center">
-      <td><img src="images/[784, 1, 10].png" width="80%"></td>
-      <td><img src="images/[784, 10].png" width="80%"></td>
-    </tr>
-  </table>
+  <figure style="display: inline-block">
+    <img src="images/784-30-10.png" alt="" style="width:45%">
+  </figure>
+  <figure style="display: inline-block">
+    <img src="images/784-64-10.png" alt="" style="width:45%">
+  </figure>
+  <figure style="display: inline-block">
+    <img src="images/784-128-10.png" alt="" style="width:45%">
+  </figure>
+  <figure style="display: inline-block">
+    <img src="images/784-256-128-10.png" alt="" style="width:45%">
+  </figure>
+  <figure style="display: inline-block">
+    <img src="images/784-1-10.png" alt="" style="width:45%">
+  </figure>
+  <figure style="display: inline-block">
+    <img src="images/784-10.png" alt="" style="width:45%">
+  </figure>
 </div>
 
 ### Licensing
