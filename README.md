@@ -65,6 +65,26 @@ See the [user guide](/docs/user-guide.md) for further usage information.
   </figure>
 </div>
 
+<h3 align="center">Neural network classification accuracies with different layer structures</h3>
+<h4 align="center">(repeats = 10, epochs = 10, mini batch size = 20, learning rate = 5)</h4>
+
+<div align="center">
+  <table>
+    <tr align="center">
+      <td><img src="images/[784, 30, 10].png" width="80%"></td>
+      <td><img src="images/[784, 64, 10].png" width="80%"></td>
+    </tr>
+    <tr align="center">
+      <td><img src="images/[784, 128, 10].png" width="80%"></td>
+      <td><img src="images/[784, 256, 128, 10].png" width="80%"></td>
+    </tr>
+    <tr align="center">
+      <td><img src="images/[784, 1, 10].png" width="80%"></td>
+      <td><img src="images/[784, 10].png" width="80%"></td>
+    </tr>
+  </table>
+</div>
+
 ### Licensing
 This project uses a dual-licensing structure:
 - **Source Code**: All of the original code is licensed under the [MIT License](LICENSE). The included data converter tool is also licensed under the [MIT License](src/mnist_converter.py).
