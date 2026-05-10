@@ -38,6 +38,9 @@ The conversion that was done on the MNIST dataset. See [data-info.md](/data/data
 **[preprocessing.py](/src/preprocessing.py)**  
 The preprocessing pipeline used to make a user submitted image ready for inference. The image is turned into grayscale, resized to 28x28, background noise is removed, pixel values are normalized to range 0 - 1, pixels are flipped (black to white and white to black) and finally the image is shaped into a (784, 1) NumPy matrix.
 
+**[plot.py](/src/plot.py)**
+Scripts for plotting neural network accuracy and printing MNIST images.
+
 Information on the used MNIST dataset can be found in [data-info.md](/data/data-info.md).
 
 ### Images
