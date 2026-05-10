@@ -1,7 +1,30 @@
+"""
+preprocessing.py
+
+Includes a function for image preprocessing
+
+preprocess() - preprocesses a given image for
+use in inference.
+"""
+
 import cv2
 import matplotlib.pyplot as plt
 
 def preprocess(img_path, digit, threshold=255, show=False):
+    """Preprocesses a given image for use inference
+    
+    Pipeline: grayscale, resize to 28x28, background noise removal,
+    pixel value flipping and transform into 784-vector.
+
+    Args:
+        img_path (str): Path to the image.
+        digit (int): The real classification of the digit.
+        threshold (int): 0-255, lower values remove background imperfections.
+        show (bool): Whether to print the converted image.
+    
+    Returns:
+        Tuple: 784-vector, actual digit
+    """
     # load image as grayscale
     image_gray = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
     # resize to 28 x 28

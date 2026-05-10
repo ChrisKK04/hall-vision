@@ -4,10 +4,7 @@ train.py
 A python script used for the training neural
 network for use in MNIST digit classification.
 
-Can be used to extract the parameters
-(sizes, biases, weights).
-
-sizes = layer structure of the network.
+train() - Trains a neural network with the given parameters
 """
 
 import pickle
@@ -15,8 +12,20 @@ import pickle
 import data_loader
 import network
 
-def train(network_structure: list, epochs: int, mini_batch_size: int,
-          learning_rate: float, extract_parameters=True, testing=True):
+def train(network_structure, epochs, mini_batch_size,
+          learning_rate, extract_parameters=True, testing=True):
+    """Trains a neural network using the given parameters.
+
+    Args:
+        network_structure (list): Layer structure of the network.
+        epochs (int): Epoch count.
+        mini_batch_size (int): Mini batch size.
+        learning_rate (float): Learning rate.
+        extract_parameters (bool): Whether to extract the trained
+            networks parameters into data/parameters.pkl.
+        testing (bool): Whether to print network accuracy during
+            training
+    """
     # load the training, validation and test data
     training_data, validation_data, test_data = data_loader.load_mnist()
 

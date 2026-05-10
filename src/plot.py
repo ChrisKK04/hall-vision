@@ -42,26 +42,53 @@ class PlotNetwork(network.Network):
         return len(correct_count)
 
 def extract_plot(network_structure, epochs, mini_batch_size, learning_rate):
+    """Extracts accuracy information during neural network training.
+    
+    Args:
+        network_structure (list): Layer structure of the network.
+        epochs (int): Epoch count.
+        mini_batch_size (int): Mini batch size.
+        learning_rate (float): Learning rate.
+
+    Returns:
+        Tuple: (inital accuracy, list of [1, .., epochs], accuracy per epoch)
+    """
     net = PlotNetwork(network_structure)
     net.stochastic_gradient_descent(training_data, epochs, mini_batch_size, learning_rate, test_data)
     return (net.accuracy_initial, list(range(1, epochs + 1)), net.accuracies)
 
-def write_plot(size, repeats, epochs, mini_batch_size, learning_rate):
+def write_plot(network_structure, repeats, epochs, mini_batch_size, learning_rate):
+    """Writes network accuracy data into a file using multiple repeats.
+
+    Args:
+        network_structure (list): Layer structure of the network.
+        repeats (int): Amount of times full training is repeated.
+        epochs (int): Epoch count.
+        mini_batch_size (int): Mini batch size.
+        learning_rate (float): Learning rate.
+    """
     initial = []
     x = []
     y = []
     for i in range(repeats):
-        print(f"Repeat {i + 1}/{repeats} for network structure {size}")
-        initial_new, x_new, y_new = extract_plot(size, epochs, mini_batch_size, learning_rate)
+        print(f"Repeat {i + 1}/{repeats} for network structure {network_structure}")
+        initial_new, x_new, y_new = extract_plot(network_structure, epochs, mini_batch_size, learning_rate)
         initial.append(initial_new)
         x = x + x_new
         y = y + y_new
     if True:
-        with open(f"data/{str(size)}.pkl", "wb") as f:
+        with open(f"data/{str(network_structure)}.pkl", "wb") as f:
             pickle.dump((initial, x, y), f)
 
-def load_plot(structure):
-    with open(f"data/{str(structure)}.pkl", "rb") as f:
+def load_plot(network_structure):
+    """Loads a plot from a file and prints a figure.
+
+    Loads data from data/network_structure.pkl.
+    
+    Args:
+        network_structure (list): Layer structure of the network.
+    """
+    with open(f"data/{str(network_structure)}.pkl", "rb") as f:
         initial, x, y = pickle.load(f)
 
     plt.xticks(range(min(x), max(x) + 1))
@@ -72,7 +99,7 @@ def load_plot(structure):
     for i in range(len(x)):
         plt.plot(x[i], y[i])
 
-    plt.title(f"{str(structure)} network (10 runs)")
+    plt.title(f"{str(network_structure)} network (10 runs)")
     plt.xlim((0, 10 + 1))
     plt.grid(axis='x', linestyle='--', linewidth=0.5)
     plt.xlabel("Epoch")
@@ -80,7 +107,16 @@ def load_plot(structure):
     plt.show()
 
 def convert_vectors_to_images(vectors):
-    """Converts 784-vectors into 28x28-matrices (images)"""
+    """Converts a list of 784-vectors into a list of 28x28-matrices (images)
+
+    Args:
+        vectors (list): List of 784-vectors
+
+    Returns:
+        List: each element is a tuple (image, digit)
+            image (numpy.ndarray): 28x28 image
+            digit (numpy.int64): digit
+    """
     shape = (28, 28)
     images = []
     for vector in vectors:
@@ -91,8 +127,14 @@ def convert_vectors_to_images(vectors):
     return images
 
 def show_images(images, classifications=False):
-    """Prints figures of MNIST images
-    Either images with only the digit or the digit and it's neural classification."""
+    """Prints figures of just MNIST images or alongside their neural classifications.
+    
+    Args:
+        images (list): each image should be first converted with
+            convert_vectors_to_images
+        classifications (bool): Whether to include neural
+            classifications for each of the printed images
+    """
     # images = tuples of (28x28 matrix, digit)
     columns = 5
     rows = 5
@@ -120,5 +162,4 @@ if __name__ == "__main__":
     write_plot([784, 30, 10], repeats=10, epochs=10, mini_batch_size=20, learning_rate=5)
     load_plot([784, 30, 10])
 
-    random.shuffle(training_data)
     show_images(convert_vectors_to_images(training_data[:70]))

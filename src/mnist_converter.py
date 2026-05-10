@@ -10,7 +10,8 @@ mnist_converter.py
 This script reshapes the image arrays and integers in
 data/mnist_original.pkl.gz into arrays for easier training.
 
-The file used in training is the output file mnist_pkl.gz.
+The file actually used in training is data/mnist_pkl.gz,
+and thus this script is only included for completeness.
 """
 
 import pickle
