@@ -15,6 +15,7 @@ import numpy as np
 
 # the core of the neural network architecture
 class BaseNetwork:
+    """The core neural network architecture class used in the project"""
 
     def __init__(self, sizes):
         """Initializes a neural network using the given structure.
@@ -28,7 +29,7 @@ class BaseNetwork:
         self.weights = [(np.random.randn(sizes[layer + 1], sizes[layer]))
                         for layer in range(len(sizes[1:]))]
         self.biases = [np.random.randn(layer, 1) for layer in sizes[1:]]
-    
+
     def feedforward(self, a):
         """Feedforwards input activations.
 
@@ -60,7 +61,7 @@ class BaseNetwork:
             a = self.sigmoid(z)
             activations.append(a)
         return activations, weighted_inputs
-    
+
     def stochastic_gradient_descent(self, training_data, epochs, mini_batch_size, learning_rate):
         """Stochastic gradient descent algorithm.
 
@@ -149,10 +150,12 @@ class BaseNetwork:
         """
         return self.sigmoid(z) * (1 - self.sigmoid(z))
 
-# The main class used when using the network
-# includes extra functionality not core to the learning
 class Network(BaseNetwork):
+    """The main neural network class used when using the network
     
+    Includes extra functionality not core to the learning algorithm.
+    """
+
     # reimplemented with accuracy testing after each epoch
     def stochastic_gradient_descent(self, training_data, epochs, mini_batch_size, learning_rate, test_data=False):
         """SGD with an option for post epoch prints.
@@ -177,7 +180,7 @@ class Network(BaseNetwork):
             if test_data:
                 accuracy = self.accuracy(test_data)
                 print(f"Epoch {epoch + 1}: {accuracy[0]}/{accuracy[1]}")
-    
+
     def accuracy(self, test_data):
         """Tests network accuracy on test data.
         
@@ -192,7 +195,7 @@ class Network(BaseNetwork):
         else:
             correct_count = [1 for sample in test_data if np.argmax(self.feedforward(sample[0])) == np.argmax(sample[1])]
         return (len(correct_count), len(test_data))
-    
+
     def evaluate_single(self, image):
         """Evaluates a single image.
         
@@ -203,7 +206,7 @@ class Network(BaseNetwork):
             numpy.int64: neural classification of the image.
         """
         return np.argmax(self.feedforward(image))
-    
+
     def set_weights_biases(self, weights, biases):
         """Sets weights and biases of network.
         
@@ -224,7 +227,7 @@ class Network(BaseNetwork):
                 biases (list): bias vectors per layer.
         """
         return (self.sizes.copy(), self.weights.copy(), self.biases.copy())
-    
+
     def extract_incorrect(self, data):
         """Runs inference on a dataset and returns incorrect classifications.
         

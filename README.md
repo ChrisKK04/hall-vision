@@ -30,6 +30,7 @@ This will install the following dependencies:
 - [Matplotlib](https://matplotlib.org/) (printing images)
 - [Pytest](https://docs.pytest.org/en/stable/) (automatic testing)
 - [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) (Pytest test coverage)
+- [pylint](https://www.pylint.org/) (code linting)
 
 See the [user guide](/docs/user-guide.md) for further usage information.
 

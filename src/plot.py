@@ -36,7 +36,7 @@ class PlotNetwork(network.Network):
             for mini_batch in mini_batches:
                 self.update_parameters(mini_batch, training_rate)
             self.accuracies.append(self.accuracy(test_data))
-    
+
     def accuracy(self, test_data):
         correct_count = [1 for sample in test_data if np.argmax(self.feedforward(sample[0])) == sample[1]]
         return len(correct_count)
